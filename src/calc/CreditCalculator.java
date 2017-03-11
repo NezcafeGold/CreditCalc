@@ -88,7 +88,7 @@ class CalcPanel extends JPanel {
 
 		add(new JLabel(" "));
 		add(b1);
-		add(new JLabel("ћес€чный платеж: "));
+		add(new JLabel("ћес€чный платеж: "));    
 		add(platezhLabel);
 
 	}
@@ -102,8 +102,8 @@ public static void calculateMonthlyPayment(int summa, int time, double procent) 
 		int n =0;
 		double montlyPayment = 0;
 		
-		while (n<time){
-	    montlyPayment = osnPlatezh+(summa-(osnPlatezh*n))*procent/100/12;//n-остаток мес€цев
+		while (n<time){               // сделать округление сумм вывода
+	    montlyPayment = osnPlatezh+(summa-(osnPlatezh*n))*procent/100/12;//n-остаток мес€цев       
 	    monthsArray.add(montlyPayment);
 	    n++;
 	    System.out.println(n+ " мес€ц - "+montlyPayment);
