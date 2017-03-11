@@ -1,6 +1,6 @@
 package calc;
 
-import java.awt.Dimension;
+import java.awt.Dimension; // подгружаем библиотеки
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -111,4 +111,5 @@ public static void calculateMonthlyPayment(int summa, int time, double procent) 
 	     
 	   }
 
-}
+} 
+
