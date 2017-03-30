@@ -1,5 +1,4 @@
-package calc;
-
+package com.nezcafe.calc;
 
 import java.util.ArrayList;
 
