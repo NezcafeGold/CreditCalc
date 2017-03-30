@@ -30,7 +30,7 @@ public class Resulting { //http://www.platesh.ru/differencirovannie-plateshi/
 			montlyPayment = (double)(osnPlatezh + (amount - (osnPlatezh * n)) * procent / 100 / 12);
 			monthsArray.add(montlyPayment);
 			n++;
-			System.out.println(n + " мес€ц - " + montlyPayment);
+			System.out.println(n + " month - " + montlyPayment);
 		}
 	}
 }
