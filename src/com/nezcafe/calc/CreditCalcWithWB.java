@@ -160,9 +160,9 @@ public class CreditCalcWithWB {
 								+ NumberFormat.getCurrencyInstance().format(list.get(i)) + "\n");
 					}
 				} catch (Exception e) {
-					amountText.setText("enter int!");
-					procentText.setText("enter double!");
-					timeText.setText("enter int!");
+					amountText.setText("Некорректные данные");
+					procentText.setText("Некорректные данные");
+					timeText.setText("Некорректные данные");
 				}
 
 			}
