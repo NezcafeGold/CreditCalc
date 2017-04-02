@@ -156,13 +156,13 @@ public class CreditCalcWithWB {
 					list = result.getMonthsArray();
 
 					for (int i = 0; i < list.size(); i++) {
-						resultField.setText(resultField.getText() + (i + 1) + " month: "
+						resultField.setText(resultField.getText() + (i + 1) + " \u043c\u0435\u0441\u044f\u0446: "
 								+ NumberFormat.getCurrencyInstance().format(list.get(i)) + "\n");
 					}
 				} catch (Exception e) {
-					amountText.setText("Некорректные данные");
-					procentText.setText("Некорректные данные");
-					timeText.setText("Некорректные данные");
+					amountText.setText("\u041d\u0435\u0432\u0435\u0440\u043d\u044b\u0439 \u0442\u0438\u043f");
+					procentText.setText("\u041d\u0435\u0432\u0435\u0440\u043d\u044b\u0439 \u0442\u0438\u043f");
+					timeText.setText("\u041d\u0435\u0432\u0435\u0440\u043d\u044b\u0439 \u0442\u0438\u043f");
 				}
 
 			}
