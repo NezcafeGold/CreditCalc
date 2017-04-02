@@ -59,10 +59,11 @@ public class CreditCalcWithWB {
 
 		frame.setTitle(
 				"\u041A\u0440\u0435\u0434\u0438\u0442\u043D\u044B\u0439 \u043A\u0430\u043B\u044C\u043A\u0443\u043B\u044F\u0442\u043E\u0440 V2.0");
-		frame.setBounds(100, 100, 310, 210);
+		frame.setBounds(100, 100, 310, 200);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
 
 		actionPanel = new JPanel();
 
@@ -113,7 +114,7 @@ public class CreditCalcWithWB {
 				if (frame.getHeight() < 420)
 					frame.setSize(310, 420);
 				else
-					frame.setSize(310, 210);
+					frame.setSize(310, 200);
 			}
 		});
 
