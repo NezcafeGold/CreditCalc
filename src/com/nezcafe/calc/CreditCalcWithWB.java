@@ -59,7 +59,7 @@ public class CreditCalcWithWB {
 
 		frame.setTitle(
 				"\u041A\u0440\u0435\u0434\u0438\u0442\u043D\u044B\u0439 \u043A\u0430\u043B\u044C\u043A\u0443\u043B\u044F\u0442\u043E\u0440 V2.0");
-		frame.setBounds(100, 100, 310, 200);
+		frame.setBounds(100, 100, 300, 200);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
@@ -109,12 +109,13 @@ public class CreditCalcWithWB {
 		actionPanel.add(resultButton);
 
 		JToggleButton toggleButton = new JToggleButton("\u0421\u043F\u0438\u0441\u043E\u043A");
+		toggleButton.setEnabled(false);
 		toggleButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (frame.getHeight() < 420)
-					frame.setSize(310, 420);
+					frame.setSize(300, 420);
 				else
-					frame.setSize(310, 200);
+					frame.setSize(300, 200);
 			}
 		});
 
@@ -153,6 +154,8 @@ public class CreditCalcWithWB {
 
 					Resulting result = new Resulting(amount, time, procent);
 					result2Lb.setText("" + NumberFormat.getCurrencyInstance().format(result.getMontlyPayment()));
+					
+					toggleButton.setEnabled(true);
 
 					list = result.getMonthsArray();
 
