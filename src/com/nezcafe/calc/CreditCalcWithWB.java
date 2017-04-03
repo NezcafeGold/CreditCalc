@@ -15,6 +15,8 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
+import java.awt.Font;
+import java.awt.Color;
 
 public class CreditCalcWithWB {
 
@@ -27,6 +29,8 @@ public class CreditCalcWithWB {
 	private JLabel resultLb;
 	private JLabel result2Lb;
 	private JTextArea resultField;
+	private JLabel errorLbl;
+	private JToggleButton toggleButton;
 
 	/**
 	 * Launch the application.
@@ -59,7 +63,7 @@ public class CreditCalcWithWB {
 
 		frame.setTitle(
 				"\u041A\u0440\u0435\u0434\u0438\u0442\u043D\u044B\u0439 \u043A\u0430\u043B\u044C\u043A\u0443\u043B\u044F\u0442\u043E\u0440 V2.0");
-		frame.setBounds(100, 100, 350, 200);
+		frame.setBounds(100, 100, 362, 200);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
@@ -67,7 +71,7 @@ public class CreditCalcWithWB {
 
 		actionPanel = new JPanel();
 
-		actionPanel.setBounds(0, 0, 350, 172);
+		actionPanel.setBounds(0, 0, 356, 172);
 		frame.getContentPane().add(actionPanel);
 		actionPanel.setLayout(null);
 
@@ -103,12 +107,12 @@ public class CreditCalcWithWB {
 		actionPanel.add(timeText);
 		timeText.setColumns(10);
 
-		JButton resultButton = new JButton("\u0420\u0447\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C");
-		resultButton.setBounds(28, 141, 105, 20);
+		JButton resultButton = new JButton("\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C");
+		resultButton.setBounds(10, 141, 105, 20);
 		actionPanel.add(resultButton);
 		
 		JButton clearButton = new JButton("\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C");
-		clearButton.setBounds(130, 141, 105, 20);
+		clearButton.setBounds(126, 141, 105, 20);
 		actionPanel.add(clearButton);
 				clearButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -116,25 +120,27 @@ public class CreditCalcWithWB {
 				procentText.setText("");
 				timeText.setText("");
 				resultField.setText("");
-				if (frame.getHeight() < 420)
-					frame.setSize(350, 420);
-				else
-					frame.setSize(350, 200);
+				errorLbl.setVisible(false);
+				toggleButton.setEnabled(false);
+				result2Lb.setText("");
+				if (frame.getHeight() > 200)
+					frame.setSize(362, 200);
+				
 			}
 		});
 		
-		JToggleButton toggleButton = new JToggleButton("\u0421\u043F\u0438\u0441\u043E\u043A");
+		toggleButton = new JToggleButton("\u0421\u043F\u0438\u0441\u043E\u043A");
 		toggleButton.setEnabled(false);
 		toggleButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (frame.getHeight() < 420)
-					frame.setSize(350, 420);
+					frame.setSize(362, 420);
 				else
-					frame.setSize(350, 200);
+					frame.setSize(362, 200);
 			}
 		});
 
-		toggleButton.setBounds(220, 141, 105, 20);
+		toggleButton.setBounds(241, 141, 105, 20);
 		actionPanel.add(toggleButton);
 
 		resultLb = new JLabel("\u041C\u0435\u0441\u044F\u0447\u043D\u044B\u0439 \u043A\u0440\u0435\u0434\u0438\u0442:");
@@ -144,9 +150,16 @@ public class CreditCalcWithWB {
 		result2Lb = new JLabel("");
 		result2Lb.setBounds(173, 102, 105, 20);
 		actionPanel.add(result2Lb);
+		
+		errorLbl = new JLabel("\u041D\u0435 \u0432\u0441\u0435 \u0434\u0430\u043D\u043D\u044B\u0435 \u043A\u043E\u0440\u0440\u0435\u043A\u0442\u043D\u044B \u0438\u043B\u0438 \u0432\u0432\u0435\u0434\u0435\u043D\u044B!");
+		errorLbl.setForeground(Color.RED);
+		errorLbl.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		errorLbl.setBounds(28, 121, 295, 14);
+		errorLbl.setVisible(false);
+		actionPanel.add(errorLbl);
 
 		JPanel secondPanel = new JPanel();
-		secondPanel.setBounds(0, 173, 330, 209);
+		secondPanel.setBounds(10, 173, 336, 209);
 		frame.getContentPane().add(secondPanel);
 		secondPanel.setLayout(new BoxLayout(secondPanel, BoxLayout.X_AXIS));
 
@@ -179,9 +192,7 @@ public class CreditCalcWithWB {
 								+ NumberFormat.getCurrencyInstance().format(list.get(i)) + "\n");
 					}
 				} catch (Exception e) {
-					amountText.setText("\u041d\u0435\u0432\u0435\u0440\u043d\u044b\u0439 \u0442\u0438\u043f");
-					procentText.setText("\u041d\u0435\u0432\u0435\u0440\u043d\u044b\u0439 \u0442\u0438\u043f");
-					timeText.setText("\u041d\u0435\u0432\u0435\u0440\u043d\u044b\u0439 \u0442\u0438\u043f");
+					errorLbl.setVisible(true);
 				}
 
 			}
