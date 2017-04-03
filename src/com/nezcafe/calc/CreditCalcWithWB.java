@@ -67,7 +67,7 @@ public class CreditCalcWithWB {
 
 		actionPanel = new JPanel();
 
-		actionPanel.setBounds(0, 0, 294, 172);
+		actionPanel.setBounds(0, 0, 350, 172);
 		frame.getContentPane().add(actionPanel);
 		actionPanel.setLayout(null);
 
@@ -110,9 +110,12 @@ public class CreditCalcWithWB {
 		JButton clearButton = new JButton("\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C");
 		clearButton.setBounds(130, 141, 105, 20);
 		actionPanel.add(clearButton);
-		clearButton.addActionListener(new ActionListener() {
+				clearButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				document.getElementsByName('amountText')[0].reset();
+				amountText.setText("");
+				procentText.setText("");
+				timeText.setText("");
+				resultField.setText("");
 				
 			}
 		});
