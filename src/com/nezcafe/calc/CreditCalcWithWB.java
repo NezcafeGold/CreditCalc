@@ -59,7 +59,7 @@ public class CreditCalcWithWB {
 
 		frame.setTitle(
 				"\u041A\u0440\u0435\u0434\u0438\u0442\u043D\u044B\u0439 \u043A\u0430\u043B\u044C\u043A\u0443\u043B\u044F\u0442\u043E\u0440 V2.0");
-		frame.setBounds(100, 100, 300, 200);
+		frame.setBounds(100, 100, 350, 200);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
@@ -72,12 +72,12 @@ public class CreditCalcWithWB {
 		actionPanel.setLayout(null);
 
 		amountLb = new JLabel("\u0421\u0443\u043C\u043C\u0430 \u041A\u0440\u0435\u0434\u0438\u0442\u0430");
-		amountLb.setBounds(28, 8, 135, 20);
+		amountLb.setBounds(28, 8, 150, 20);
 		actionPanel.add(amountLb);
 
 		JTextField amountText = new JTextField();
 
-		amountText.setBounds(173, 8, 105, 20);
+		amountText.setBounds(173, 8, 150, 20);
 		actionPanel.add(amountText);
 		amountText.setColumns(10);
 
@@ -88,7 +88,7 @@ public class CreditCalcWithWB {
 
 		procentText = new JTextField();
 
-		procentText.setBounds(173, 39, 105, 20);
+		procentText.setBounds(173, 39, 150, 20);
 		actionPanel.add(procentText);
 		procentText.setColumns(10);
 
@@ -99,27 +99,36 @@ public class CreditCalcWithWB {
 
 		timeText = new JTextField();
 
-		timeText.setBounds(173, 71, 105, 20);
+		timeText.setBounds(173, 71, 150, 20);
 		actionPanel.add(timeText);
 		timeText.setColumns(10);
 
-		JButton resultButton = new JButton("\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C");
-
+		JButton resultButton = new JButton("\u0420\u0447\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C");
 		resultButton.setBounds(28, 141, 105, 20);
 		actionPanel.add(resultButton);
-
+		
+		JButton clearButton = new JButton("\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C");
+		clearButton.setBounds(130, 141, 105, 20);
+		actionPanel.add(clearButton);
+		clearButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				document.getElementsByName('amountText')[0].reset();
+				
+			}
+		});
+		
 		JToggleButton toggleButton = new JToggleButton("\u0421\u043F\u0438\u0441\u043E\u043A");
 		toggleButton.setEnabled(false);
 		toggleButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (frame.getHeight() < 420)
-					frame.setSize(300, 420);
+					frame.setSize(350, 420);
 				else
-					frame.setSize(300, 200);
+					frame.setSize(350, 200);
 			}
 		});
 
-		toggleButton.setBounds(173, 141, 105, 20);
+		toggleButton.setBounds(220, 141, 105, 20);
 		actionPanel.add(toggleButton);
 
 		resultLb = new JLabel("\u041C\u0435\u0441\u044F\u0447\u043D\u044B\u0439 \u043A\u0440\u0435\u0434\u0438\u0442:");
