@@ -184,6 +184,7 @@ public class CreditCalcWithWB {
 					result2Lb.setText("" + NumberFormat.getCurrencyInstance().format(result.getMontlyPayment()));
 					
 					toggleButton.setEnabled(true);
+					errorLbl.setVisible(false);
 
 					list = result.getMonthsArray();
 
