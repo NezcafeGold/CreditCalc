@@ -115,7 +115,11 @@ public class CreditCalcWithWB {
 				amountText.setText("");
 				procentText.setText("");
 				timeText.setText("");
-				resultField.setText("");				
+				resultField.setText("");
+				if (frame.getHeight() < 420)
+					frame.setSize(350, 420);
+				else
+					frame.setSize(350, 200);
 			}
 		});
 		
