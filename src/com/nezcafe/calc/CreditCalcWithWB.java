@@ -115,8 +115,7 @@ public class CreditCalcWithWB {
 				amountText.setText("");
 				procentText.setText("");
 				timeText.setText("");
-				resultField.setText("");
-				
+				resultField.setText("");				
 			}
 		});
 		
@@ -143,7 +142,7 @@ public class CreditCalcWithWB {
 		actionPanel.add(result2Lb);
 
 		JPanel secondPanel = new JPanel();
-		secondPanel.setBounds(0, 173, 293, 209);
+		secondPanel.setBounds(0, 173, 330, 209);
 		frame.getContentPane().add(secondPanel);
 		secondPanel.setLayout(new BoxLayout(secondPanel, BoxLayout.X_AXIS));
 
