@@ -1,6 +1,6 @@
-package com.nezcafe.calc;
+package com.nezcafe.calc; //путь пакета
 
-import java.awt.EventQueue;
+import java.awt.EventQueue;	//импорт библиотек
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
@@ -20,7 +20,7 @@ import java.awt.Color;
 
 public class CreditCalcWithWB {
 
-	private JFrame frame;
+	private JFrame frame; //объявление переменных
 	private JLabel amountLb;
 	private JLabel procentLb;
 	private JTextField procentText;
@@ -35,11 +35,11 @@ public class CreditCalcWithWB {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) { 
 		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+			public void run() { 
 				try {
-					CreditCalcWithWB window = new CreditCalcWithWB();
+					CreditCalcWithWB window = new CreditCalcWithWB(); //запуск класса CreditCalcWithWB с объявлением на него ссылки window
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,41 +52,41 @@ public class CreditCalcWithWB {
 	 * Create the application.
 	 */
 	public CreditCalcWithWB() {
-		initialize();
+		initialize(); 
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame = new JFrame(); //создание окна программы
 
 		frame.setTitle(
-				"\u041A\u0440\u0435\u0434\u0438\u0442\u043D\u044B\u0439 \u043A\u0430\u043B\u044C\u043A\u0443\u043B\u044F\u0442\u043E\u0440 V2.0");
-		frame.setBounds(100, 100, 362, 200);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		frame.setLocationRelativeTo(null);
-		frame.setResizable(false);
+				"Кредитный калькулятор");
+		frame.setBounds(100, 100, 362, 200); //размеры окна
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //при нажатии на крестик закрывать программу
+		frame.getContentPane().setLayout(null); 
+		frame.setLocationRelativeTo(null); //разместить посередине экрана
+		frame.setResizable(false); //запрет на изменение размера пользователем
 
-		actionPanel = new JPanel();
+		actionPanel = new JPanel(); //создание панели 
 
-		actionPanel.setBounds(0, 0, 356, 172);
-		frame.getContentPane().add(actionPanel);
-		actionPanel.setLayout(null);
+		actionPanel.setBounds(0, 0, 356, 172); //размер панели
+		frame.getContentPane().add(actionPanel); // добавление панели в рамку
+		actionPanel.setLayout(null); // layout (слой) отсутствует (Absolute)
 
-		amountLb = new JLabel("\u0421\u0443\u043C\u043C\u0430 \u041A\u0440\u0435\u0434\u0438\u0442\u0430");
-		amountLb.setBounds(28, 8, 150, 20);
-		actionPanel.add(amountLb);
+		amountLb = new JLabel("Сумма кредита"); //Создание лейбла
+		amountLb.setBounds(28, 8, 150, 20); //размеры лейбла
+		actionPanel.add(amountLb); //добавление на панель
 
-		JTextField amountText = new JTextField();
+		JTextField amountText = new JTextField(); //текстовое поле
 
-		amountText.setBounds(173, 8, 150, 20);
-		actionPanel.add(amountText);
-		amountText.setColumns(10);
+		amountText.setBounds(173, 8, 150, 20); //размеры пол¤
+		actionPanel.add(amountText); //добавление на панель
+		amountText.setColumns(10); 
 
 		procentLb = new JLabel(
-				"\u041F\u0440\u043E\u0446\u0435\u043D\u0442\u043D\u0430\u044F \u0441\u0442\u0430\u0432\u043A\u0430");
+				"Процентная ставка");
 		procentLb.setBounds(28, 39, 135, 20);
 		actionPanel.add(procentLb);
 
@@ -97,7 +97,7 @@ public class CreditCalcWithWB {
 		procentText.setColumns(10);
 
 		JLabel timeLb = new JLabel(
-				"\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043C\u0435\u0441\u044F\u0446\u0435\u0432");
+				"Количество месяцев");
 		timeLb.setBounds(28, 71, 135, 20);
 		actionPanel.add(timeLb);
 
@@ -107,33 +107,33 @@ public class CreditCalcWithWB {
 		actionPanel.add(timeText);
 		timeText.setColumns(10);
 
-		JButton resultButton = new JButton("\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C");
+		JButton resultButton = new JButton("Рассчитать"); //создание кнопки
 		resultButton.setBounds(10, 141, 105, 20);
 		actionPanel.add(resultButton);
 		
-		JButton clearButton = new JButton("\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C");
+		JButton clearButton = new  JButton("Очистить"); //кнопка для очистки формы
 		clearButton.setBounds(126, 141, 105, 20);
 		actionPanel.add(clearButton);
-				clearButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				amountText.setText("");
+				clearButton.addActionListener(new ActionListener() { //слушатель событий
+			public void actionPerformed(ActionEvent evt) { //реагирует на нажатие на кнопку
+				amountText.setText(""); //очищение всех текстовых полей
 				procentText.setText("");
 				timeText.setText("");
 				resultField.setText("");
 				errorLbl.setVisible(false);
 				toggleButton.setEnabled(false);
 				result2Lb.setText("");
-				if (frame.getHeight() > 200)
+				if (frame.getHeight() > 200) //если окошко большое, уменьшить до стандартов
 					frame.setSize(362, 200);
 				
 			}
 		});
 		
-		toggleButton = new JToggleButton("\u0421\u043F\u0438\u0441\u043E\u043A");
-		toggleButton.setEnabled(false);
+		toggleButton = new JToggleButton("Список"); //кнопка для развертывани¤ приложени¤
+		toggleButton.setEnabled(false); //не доступна для нажатия
 		toggleButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (frame.getHeight() < 420)
+				if (frame.getHeight() < 420) //
 					frame.setSize(362, 420);
 				else
 					frame.setSize(362, 200);
@@ -143,7 +143,7 @@ public class CreditCalcWithWB {
 		toggleButton.setBounds(241, 141, 105, 20);
 		actionPanel.add(toggleButton);
 
-		resultLb = new JLabel("\u041C\u0435\u0441\u044F\u0447\u043D\u044B\u0439 \u043A\u0440\u0435\u0434\u0438\u0442:");
+		resultLb = new JLabel("Месячный кредит:"); 
 		resultLb.setBounds(28, 102, 135, 20);
 		actionPanel.add(resultLb);
 
@@ -151,14 +151,14 @@ public class CreditCalcWithWB {
 		result2Lb.setBounds(173, 102, 105, 20);
 		actionPanel.add(result2Lb);
 		
-		errorLbl = new JLabel("\u041D\u0435 \u0432\u0441\u0435 \u0434\u0430\u043D\u043D\u044B\u0435 \u043A\u043E\u0440\u0440\u0435\u043A\u0442\u043D\u044B \u0438\u043B\u0438 \u0432\u0432\u0435\u0434\u0435\u043D\u044B!");
-		errorLbl.setForeground(Color.RED);
+		errorLbl = new JLabel("Не все данные корректны или введены правильно!");
+		errorLbl.setForeground(Color.RED); // цвет текста
 		errorLbl.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		errorLbl.setBounds(28, 121, 295, 14);
 		errorLbl.setVisible(false);
 		actionPanel.add(errorLbl);
 
-		JPanel secondPanel = new JPanel();
+		JPanel secondPanel = new JPanel(); 
 		secondPanel.setBounds(10, 173, 336, 209);
 		frame.getContentPane().add(secondPanel);
 		secondPanel.setLayout(new BoxLayout(secondPanel, BoxLayout.X_AXIS));
@@ -167,7 +167,7 @@ public class CreditCalcWithWB {
 		resultField.setEditable(false);
 		secondPanel.add(resultField);
 
-		JScrollPane scrollPane = new JScrollPane(resultField);
+		JScrollPane scrollPane = new JScrollPane(resultField); //панель со скроллингом
 		secondPanel.add(scrollPane, BorderLayout.CENTER);
 
 		resultButton.addActionListener(new ActionListener() {
@@ -189,7 +189,7 @@ public class CreditCalcWithWB {
 					list = result.getMonthsArray();
 
 					for (int i = 0; i < list.size(); i++) {
-						resultField.setText(resultField.getText() + (i + 1) + " \u043c\u0435\u0441\u044f\u0446: "
+						resultField.setText(resultField.getText() + (i + 1) + " месяц: "
 								+ NumberFormat.getCurrencyInstance().format(list.get(i)) + "\n");
 					}
 				} catch (Exception e) {

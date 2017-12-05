@@ -26,8 +26,8 @@ public class Resulting { //http://www.platesh.ru/differencirovannie-plateshi/
 		int n = 0;
 		osnPlatezh = amount / time; 
 
-		while (n < time) {
-			montlyPayment = (double)(osnPlatezh + (amount - (osnPlatezh * n)) * procent / 100 / 12);
+		while (n < time) { //консольный вывод для теста
+			montlyPayment = (double)(osnPlatezh + (amount - (osnPlatezh * n)) * procent / 100 / 12); 
 			monthsArray.add(montlyPayment);
 			n++;
 			System.out.println(n + " month - " + montlyPayment);
