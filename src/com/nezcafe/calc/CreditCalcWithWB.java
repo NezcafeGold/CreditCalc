@@ -188,10 +188,7 @@ public class CreditCalcWithWB {
 
 					list = result.getMonthsArray();
 
-					for (int i = 0; i < list.size(); i++) {
-						resultField.setText(resultField.getText() + (i + 1) + " месяц: "
-								+ NumberFormat.getCurrencyInstance().format(list.get(i)) + "\n");
-					}
+					
 				} catch (Exception e) {
 					errorLbl.setVisible(true);
 				}
