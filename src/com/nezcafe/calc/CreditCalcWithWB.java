@@ -140,23 +140,7 @@ public class CreditCalcWithWB {
 			}
 		});
 
-		toggleButton.setBounds(241, 141, 105, 20);
-		actionPanel.add(toggleButton);
-
-		resultLb = new JLabel("Месячный кредит:"); 
-		resultLb.setBounds(28, 102, 135, 20);
-		actionPanel.add(resultLb);
-
-		result2Lb = new JLabel("");
-		result2Lb.setBounds(173, 102, 105, 20);
-		actionPanel.add(result2Lb);
 		
-		errorLbl = new JLabel("Не все данные корректны или введены правильно!");
-		errorLbl.setForeground(Color.RED); // цвет текста
-		errorLbl.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		errorLbl.setBounds(28, 121, 295, 14);
-		errorLbl.setVisible(false);
-		actionPanel.add(errorLbl);
 
 		JPanel secondPanel = new JPanel(); 
 		secondPanel.setBounds(10, 173, 336, 209);
