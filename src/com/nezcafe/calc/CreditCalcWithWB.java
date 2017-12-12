@@ -61,13 +61,7 @@ public class CreditCalcWithWB {
 	private void initialize() {
 		frame = new JFrame(); //создание окна программы
 
-		frame.setTitle(
-				"Кредитный калькулятор");
-		frame.setBounds(100, 100, 362, 200); //размеры окна
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //при нажатии на крестик закрывать программу
-		frame.getContentPane().setLayout(null); 
-		frame.setLocationRelativeTo(null); //разместить посередине экрана
-		frame.setResizable(false); //запрет на изменение размера пользователем
+		
 
 		actionPanel = new JPanel(); //создание панели 
 
@@ -111,23 +105,7 @@ public class CreditCalcWithWB {
 		resultButton.setBounds(10, 141, 105, 20);
 		actionPanel.add(resultButton);
 		
-		JButton clearButton = new  JButton("Очистить"); //кнопка для очистки формы
-		clearButton.setBounds(126, 141, 105, 20);
-		actionPanel.add(clearButton);
-				clearButton.addActionListener(new ActionListener() { //слушатель событий
-			public void actionPerformed(ActionEvent evt) { //реагирует на нажатие на кнопку
-				amountText.setText(""); //очищение всех текстовых полей
-				procentText.setText("");
-				timeText.setText("");
-				resultField.setText("");
-				errorLbl.setVisible(false);
-				toggleButton.setEnabled(false);
-				result2Lb.setText("");
-				if (frame.getHeight() > 200) //если окошко большое, уменьшить до стандартов
-					frame.setSize(362, 200);
-				
-			}
-		});
+		
 		
 		toggleButton = new JToggleButton("Список"); //кнопка для развертывани¤ приложени¤
 		toggleButton.setEnabled(false); //не доступна для нажатия
